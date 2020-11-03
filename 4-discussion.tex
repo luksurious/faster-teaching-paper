@@ -1,0 +1,113 @@
+
+\section{Discussion}
+
+\subsection{Results}
+We were able to partially replicate the results reported by Rafferty \textit{et al.} for the simulated learners.
+Indeed, the overall picture is similar but some results are different that lead to a different evaluation.
+
+We encountered two main differences in our replication. First, in the letter arithmetic task, the memoryless policy performed significantly better with the simulated memoryless learner. Intuitively this makes sense because it is matching the cognitive model between the planner and learner.
+Second, in the number game, the maximum information gain policy achieved comparable performance to the POMDP policies where it was previously reported to be greatly outperformed by them.
+
+
+Certainly, the random policies were not good teachers.
+However, the policy based on the maximum information gain achieved comparable results to the other POMDP policies, while mostly failing in the original paper. 
+% We did not find it to be failing as in the original paper.
+% Since it also employs the continuous belief model inside to trace the state of the learner, we argue that it should still be considered as a POMDP policy rather than a baseline.
+%Considering the computational costs of the forward search planning, it appears to be a reasonable and low-cost approach.
+% Even so, the computation times with the other policies is not comparable because it only searches over a horizon of one instead of two or three.
+Since it also employs the continuous belief model inside to trace the state of the learner, it would be interesting to see whether reducing the horizon of the other models leads to similar performance (with better runtimes) and if the maximum information gain policy can be further improved by increasing the horizon.
+
+%In many cases, the difference between the POMDP models are not large, so considering the computational requirements, it seems that the more conservative and simple memoryless model would be a good choice for practical applications. 
+%Overall, the memoryless model achieves the best scores considering the different types of learners together.
+
+
+Our results show that for a strong learner, the planning model is not very important as all achieve high performance. 
+For a weaker learner, our simulations show that a policy with weaker learning assumptions fits best.
+%While it was possible to show that the model is able to plan better than a random model, it seems too simple to really evaluate the the models as the baseline using only example actions based on the maximum information gain achieves the same results in terms of median time to mastery as the more sophisticated POMDP models.
+The letter arithmetic does not allow to draw conclusions as all planning policies perform equally well.
+In the number game, the results are more differentiated but it is still not possible to draw clear conclusions about the suitability of a policy and whether they are superior to the maximum information gain policy.
+
+Even though the continuous policy was the only one to use a horizon of 3 in the number game which resulted in much higher computation times, its results for mismatching simulated learners were worse than in the original paper. This might be due to our implementation not stopping calculations after 3 seconds. If that is one reason it might imply that an improved search might actually be counter-productive in these cases.
+
+% In the number game, we find it surprising that the horizon for the continuous model was set to three with similar sample sizes as the discrete models that only search two levels. 
+% This is in contrast to the settings of the first task where all models used the same horizon and the continuous policy sampled fewer items.
+% Considering that the state space is around 7 times larger in the number game than in the letter arithmetic tasks, it is counter-intuitive to largely increase the search space.
+% As a result, we show that the computation times in this case is significantly increased, well above a reasonable threshold of three seconds.
+
+% model discussion
+\subsection{Learner models}
+
+Our results provide extra information regarding the failure rates to evaluate the policies.
+The mastery time alone can be misleading as it might mask failure rates with cheap actions as it is the case with the continuous policy in the first task. 
+From this analysis we found that the simulated memoryless learner often fails to learn the concept and as such it seems not a very plausible model for human concept learning. We deduce from the original paper that the human learners were able to mostly learn the concepts correctly in contrary.
+On the other side, the continuous policy most often led to failures in the learners, indicating that it is not well suited for different types of learners.
+This can also be seen from the types of actions sampled. In the letter arithmetic task, it converged to choose only quiz activities. This fails to give new evidence and correct mistakes, and resulted in the high failure rate for the memoryless learner.
+This is in line with the analysis by Rafferty \textit{et al.} that the continuous policy overestimates the learning capabilities and might not discover a divergence between the belief and the true state.
+
+The two discrete models (memoryless model and model with memory) could be improved by assigning higher transition probabilities to states that are closer to the current state.
+%Especially in the memoryless model, the transitions to new states is a random guess based only on the current information. 
+% In an MDP, states can contain information about the history and transitions often depend on the current state, e.g., favoring transitions to states that are closer to the current state. 
+% The same can be applied here: as the current state contains information about the previous action, we can exploit this information without keeping an explicit history by assigning higher probability to states with less distance to the current state. 
+For example, in the letter arithmetic task, the distance can be measured by the number of necessary pairwise changes to move from one state to another. 
+We argue that this also better reflects human learning. 
+%Integrating this into the learner model can improve the performance significantly for cases with related states.
+%(see \autoref{sec:supp}) and renders the memoryless model actually usable. 
+% In larger domains, it would also make convergence to the target state more likely as the implicit history inside the state is better utilized.
+
+Further, the discrete model with memory assumes a perfect memory. 
+It seems plausible that this is not always the case for human learners and might be too strong of an assumption. 
+However, if different memory state possibilities were integrated into the model, the state space would increase significantly, reducing its tractability. 
+Nevertheless, it could be a reason for the high transition noise determined for this learner model in the letter arithmetic task.
+
+
+% task discussion
+
+% \subsection{Tasks}
+
+
+
+
+%Yet, already for this simple problem, the planning horizon was very short because the computational requirements increase exponentially and increasing the horizon makes it unusable in a live setting.
+
+
+\subsection{Framework}
+%%% Lukas: I might be discussing too much?
+One key to implementing the models efficiently is to not use the explicit Bayesian belief update equation but instead treat the belief update separately for inferring the learner's previous state and for calculating transitions based on new evidence, mainly in the case of feedback activities.
+The formulation as a POMDP could be improved by taking this into account or employing different action types that fit the structure better.
+
+
+% framework discussion
+
+% teaching goal, cost definitions
+Defining the teaching goal and associated rewards or costs is a critical part in this framework.
+Focusing on shortest time and associating the average time to process an action type nearly eliminated one of the teaching types (feedback type), presumably due to the high costs associated. 
+It was shown that the continuous model converges to the cheapest action type and the differences in costs between the first and second task resulted in a very different behavior of the model.
+As the main planning decision, as stated in the original paper, can be seen as deciding between teaching new content (examples) versus inferring the learner's state (quizzes), defining the cost function in the current way does not seem to facilitate this decision well enough. 
+
+
+% leaf estimation
+The estimation of leaf nodes requires more evaluation. 
+The dimension $\alpha$ in the formula needs to be scaled appropriately to the state space and corresponding changes in success probability from teaching actions. 
+Otherwise, the forward search could lead to mainly choosing the cheapest action if the success probability of the correct concept is too small in comparison.
+%%% Lukas: Should I add an example? It is a rather simple calculation but a bit tricky to explain in short words.
+%\footnote{A simple calculation. Assume the cheapest action type quiz has a cost associated of 4, this means the success probability in the leaf calculation is scaled by 40. When choosing a quiz, the learner's state does not change. .... p(true)= 1e-6. With quiz 1 horizon, val = 4+40*1e-6=4.00004. Example costs 5 and pushes to true concept, p(true)=1e-5. Val = 5+40*1e-5=5.0004. With uniform observation probability. this actually happens in the number game for the most unlikely concept (multiples of 4 minus 1) if the values of the first task are taken}
+It would be interesting to see if the estimation of leaf nodes correspond to the true values of the states in the experiments.
+
+% future
+%These costs are highly important but remain fixed for all participants even though it seems plausible that different learners exhibit different learning times. 
+%In a real experiment, it would be interesting to see if adapting the costs of the actions to the historical data taken by that user would adapt better to the individual and possibly make feedback types more attractive to use. 
+
+%Possibly adapt the estimation function accordingly to fit the data.
+%Similar data and user-based adaptation could be performed for the noise parameters to adapt to the individual learners.
+
+% assessment phase, determining goal state
+% how is it done in "regular POMDPs"? shouldnt either the belief determine if the agent stops (i.e. cont. model stops even if not learned), or it is a separate action/observation which would then be integrated into the model and belief updates??
+Having a separate assessment phase whose purpose is solely to determine if the teaching is finished, and not using the responses to tune the belief, falls outside of the POMDP formulation and appears counter-intuitive. 
+This results in a few cases where the teacher is not able to determine the wrong hypothesis of the learner when the belief diverges from the state, and no quiz actions are planned to validate the belief. 
+It would be interesting to see if integrating the assessment as a separate action type into the planning algorithm would solve this issue.
+% In a human experiment, the assessment phase might also give additional information about the concept to be learned (e.g., in the number game) as learners might assume that some should be from within the concept.
+%Integrating the assessment phase into the planning model could alleviate these issues and enforce more regular "sanity checks" as otherwise the teaching would not terminate.
+
+
+
+% formulation as POMDP still interesting, although concrete tasks and learner models seem in need of adjustment

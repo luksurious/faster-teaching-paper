@@ -1,0 +1,28 @@
+
+\section{Introduction}
+
+% TODO Citations are missing?
+Teaching students in an automated fashion is a challenging task. 
+Human teachers are able to adjust the teaching process to the students depending on their current situation (e.g., a teacher will act differently if they think that the student did not fully understand a concept yet, or if they already mastered it). This level of understanding of the student's knowledge and a consequential ability to adjust the teaching activities is not straightforward in automated teaching applications.
+
+One method for increasing the teaching effectiveness in automated teaching applications was proposed by Rafferty \textit{et al.}~\cite{rafferty2016faster}\footnote{Note that there is a shorter version with the same method described which only contains the first task of this longer paper. We always refer to the longer and later paper in this replication.}. They model teaching as a partially observable Markov decision process (POMDP), considering the selection of the next teaching activity as a planning problem. The automated teacher employs a cognitive learner model that defines how the student's knowledge state is expected to behave and that defines how the internal belief update is calculated.
+As the title of the paper suggests, the goal of the teacher is to teach the student quickly. The teaching activities have a time cost associated and the goal is to minimize the total time until a concept is learned. 
+
+The teacher has three types of teaching activities available: showing an example (i.e., teaching new content), asking a quiz (i.e., assessing the knowledge of the student), and a question with feedback action (i.e., a question is asked and the question's correct answer is then revealed).
+Three learner models were postulated: a memoryless model that stochastically chooses a matching concept based on the current action, a discrete model with memory that additionally matches concepts with previously seen actions and a continuous model with a probability distribution over all concepts that eliminates inconsistent concepts based on the actions.
+
+The combination of learner model and teaching action defines the belief update computation. During the planning phase, a set of sample actions are evaluated by a tree search algorithm with limited horizon, where the belief is simulated according to the learner model. The teacher selects the action with the lowest cost according to the action sequence costs leading the student the closest to the desired knowledge.
+
+The algorithm is evaluated on two concept learning tasks: (i) a simple \textit{letter arithmetic} task with the goal of finding the correct mapping between a set of letters and numbers, and (ii) a \textit{number game}, in which students need to learn the target number concept (e.g., is the rule used for generating numbers 'odd numbers', 'numbers between 15-25', ...?). 
+
+
+We implemented the algorithms and evaluated our implementation through the same simulations as in the original work.
+We received comparable results for the first task with one deviation.
+However, the different models achieve a very similar performance if paired with a sophisticated learner and are not better than a baseline based on maximum information gain. 
+In the second, more complex task, the POMDP policies outperformed the random baselines but have no clear advantage over the policy based on maximum information gain. Further, no single learner model was clearly better than the others.
+In addition, we report explicit failure rates of the policies when paired with a particular learner model. This showed that the simulated memoryless learner often fails to learn the concept, and that the continuous policy tends to overestimate the learner abilities and does not discover mismatches between the belief and the state.
+
+
+% extend
+Our implementation is open and can be found at \url{https://github.com/luksurious/faster-teaching}.
+

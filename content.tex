@@ -1,0 +1,41 @@
+% TODO policy vs model
+% TODO check tenses
+% TODO name discrete -> discrete memory everywhere
+
+\subsubsection{Abstract}
+%%% Lukas: this got pretty long now
+We partially replicated the model described by Rafferty \textit{et al.} to optimize automated teaching via POMDP planning. 
+Teaching is formulated as a partially observable Markov decision process (POMDP) in which the teacher operates and plans actions based on the belief that reflects the learner's state.
+The automated teacher employs a cognitive learner model that defines how the learner's knowledge state changes.% assuming a Bayesian belief update.
+Two concept learning tasks are used to evaluate the approach: (i) a simple \textit{letter arithmetic} task with the goal of finding the correct mapping between a set of letters and numbers, and (ii) a \textit{number game}, where a target number concept needs to be learned.
+%(e.g. is the rule used for generating the items 'odd numbers' or 'numbers between 15-25'?)
+Three learner models were postulated: a memoryless model that stochastically chooses a matching concept based on the current action, a discrete model with memory that additionally matches concepts with previously seen actions and a continuous model with a probability distribution over all concepts that eliminates inconsistent concepts based on the actions.
+We implemented all models and both tasks, and ran simulations following the same protocol as in the original paper. We were able to replicate the results for the first task with comparable results except for one case. In the second task, our results differ more significantly.
+% i.e. MIG is still pretty good
+%%% Lukas: does it make sense to write this here already?
+While the POMDP policies outperform the random baselines overall, a clear advantage over the policy based on maximum information gain cannot be seen.
+We open source our implementation in Python and extend the description of the learner models with explicit formulas for the belief update, as well as an extended description of the planning algorithm, hoping that this will help other researchers to extend this work.
+
+
+\input{1-introduction}
+\input{2-method}
+\input{3-experiments}
+\input{4-discussion}
+
+
+\section{Conclusion}
+Formulating teaching as a POMDP is a useful approach that allows to use sophisticated planning algorithms with cognitive learner models.
+% We replicated the work by Rafferty et al. with some differences.
+% , and also clarified the formulation in a more rigorous way.
+% In the proposed context of concept learning, there is no clear differentiation in terms of performance between the different learner models and the policy based on the continuous model with maximum information gain.
+% For further application, we argue that the optimization goal and cost definition should be formulated differently to produce be more robust and address the issue of learning failure.
+% Further, 
+While computational challenges remain for employing the proposed method in real-time settings, investigating challenges and trade-offs for real-world teaching problems (e.g., second language learning) are still necessary to fully understand the applicability of the formulation.
+Through this replication, we hope to facilitate research in this direction as currently employed heuristics in tutoring systems lack adaptability for which model-based systems are promising candidates. % by providing an extended description and a free implementation of the Faster Teaching's algorithm.
+
+\section{Acknowledgements}
+We would like to thank Anna Rafferty (the first author of the original paper) for answering our numerous questions and sharing her implementation with us.
+
+\section{Author contributions}
+AN and LB designed the replication.
+LB implemented the model, performed the subsequent analysis, and wrote the paper. AN supervised the process.

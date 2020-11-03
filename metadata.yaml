@@ -5,56 +5,38 @@
 #  - For a successful replication, it shoudl be prefixed with "[Re]"
 #  - For a failed replication, it should be prefixed with "[¬Re]"
 #  - For other article types, no instruction (but please, not too long)
-title: "ReScience (R)evolution"
+title: "[Re] Faster Teaching via POMDP Planning"
 
 # List of authors with name, orcid number, email and affiliation
 # Affiliation "*" means contact author
 authors:
-  - name: Konrad Hinsen
-    orcid: 0000-0003-0330-9428
-    email: konrad.hinsen@cnrs.fr
-    affiliations: 1,2
-    
-  - name: Nicolas P. Rougier
-    orcid: 0000-0002-6972-589X
-    email: Nicolas.Rougier@inria.fr
-    affiliations: 3,4,5,*      # * is for contact author
+  - name: Lukas Brückner
+    orcid: 0000-0001-6949-5820
+    email: lukas.brueckner.89@gmail.com
+    affiliations: 1,*
+
+  - name: Aurélien Nioche
+    orcid: 0000-0002-0567-2637
+    email: nioche.aurelien@gmail.com
+    affiliations: 1
 
 # List of affiliations with code (corresponding to author affiliations), name
 # and address. You can also use these affiliations to add text such as "Equal
 # contributions" as name (with no address).
 affiliations:
   - code:    1
-    name:    Centre de Biophysique Moléculaire, CNRS UPR4301
-    address: Orléans, France
-    
-  - code:    2
-    name:    Synchrotron SOLEIL, Division Expériences
-    address: Gif sur Yvette, France
-    
-  - code:    3
-    name:    INRIA Bordeaux Sud-Ouest
-    address: Bordeaux, France
-    
-  - code:    4
-    name:    LaBRI, Université de Bordeaux, Institut Polytechnique de Bordeaux,
-             Centre National de la Recherche Scientifique, UMR 5800
-    address: Talence, France
-    
-  - code:    5
-    name:    Institut des Maladies Neurodégénératives, Université  de Bordeaux,
-             Centre National de la Recherche Scientifique, UMR 5293
-    address: Bordeaux, France
+    name:    Aalto University
+    address: Espoo, Finland
 
 
 # List of keywords (adding the programming language might be a good idea)
-keywords: rescience c, rescience x
+keywords: rescience c, python, automated teaching, concept learning
 
 # Code URL and DOI (url is mandatory for replication, doi after acceptance)
 # You can get a DOI for your code from Zenodo,
 #   see https://guides.github.com/activities/citable-code/
 code:
-  - url: https://github.com/rescience-c/template
+  - url: https://github.com/luksurious/faster-teaching
   - doi: 
 
 # Date URL and DOI (optional if no data)
@@ -64,22 +46,13 @@ data:
 
 # Information about the original article that has been replicated
 replication:
- - cite: # Full textual citation
- - bib:  # Bibtex key (if any) in your bibliography file
- - url:  # URL to the PDF, try to link to a non-paywall version
- - doi:  # Regular digital object identifier
+  - cite: "Rafferty, A. N., Brunskill, E. , Griffiths, T. L. and Shafto, P. (2016), Faster Teaching via POMDP Planning. Cogn Sci, 40: 1290-1332." # Full textual citation
+  - bib:  rafferty2016faster # Bibtex key (if any) in your bibliography file
+  - url:  https://www.onlinelibrary.wiley.com/doi/full/10.1111/cogs.12290 # URL to the PDF, try to link to a non-paywall version
+  - doi:  10.1111/cogs.12290 # Regular digital object identifier
 
 # Don't forget to surround abstract with double quotes
-abstract: "Three years have passed since ReScience published its first article
-           and since September 2015, things have been going steadily. We're
-           still alive, independent and without a budget. In the meantime, we
-           have published around 20 articles (mostly in computational
-           neuroscience & computational ecology) and the initial has grown
-           from around 10 to roughly 100 members (editors and reviewers), we
-           have advertised ReScience at several conferences worldwide, gave
-           some interviews and we published an article introducing ReScience in
-           PeerJ. Based on our experience at managing the journal during these
-           three years, we think the time is ripe for proposing some changes."
+abstract: "We partially replicated the model described by Rafferty et al. to optimize automated teaching via POMDP planning. Teaching is formulated as a partially observable Markov decision process (POMDP) in which the teacher operates and plans actions based on the belief that reflects the learner's state. The automated teacher employs a cognitive learner model that defines how the learner's knowledge state changes. Two concept learning tasks are used to evaluate the approach: (i) a simple letter arithmetic task with the goal of finding the correct mapping between a set of letters and numbers, and (ii) a number game, where a target number concept needs to be learned. Three learner models were postulated: a memoryless model that stochastically chooses a matching concept based on the current action, a discrete model with memory that additionally matches concepts with previously seen actions and a continuous model with a probability distribution over all concepts that eliminates inconsistent concepts based on the actions. We implemented all models and both tasks, and ran simulations following the same protocol as in the original paper. We were able to replicate the results for the first task with comparable results except for one case. In the second task, our results differ more significantly. While the POMDP policies outperform the random baselines overall, a clear advantage over the policy based on maximum information gain cannot be seen. We open source our implementation in Python and extend the description of the learner models with explicit formulas for the belief update, as well as an extended description of the planning algorithm, hoping that this will help other researchers to extend this work."
 
 # Bibliography file (yours)
 bibliography: bibliography.bib
@@ -89,14 +62,14 @@ bibliography: bibliography.bib
 #  * Editorial
 #  * Letter
 #  * Replication
-type: Editorial
+type: Replication
 
 # Scientific domain of the article (e.g. Computational Neuroscience)
 #  (one domain only & try to be not overly specific)
 domain: 
 
 # Coding language (main one only if several)
-language:
+language: python
 
   
 # To be filled by the author(s) after acceptance
@@ -119,7 +92,7 @@ contributors:
 
 # This information will be provided by the editor
 dates:
-  - received:  November 1, 2018
+  - received:  June 28, 2020
   - accepted:
   - published: 
 

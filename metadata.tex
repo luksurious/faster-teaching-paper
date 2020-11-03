@@ -4,34 +4,34 @@
 \def \codeDOI{}
 \def \dataURL{}
 \def \dataDOI{}
-\def \editorNAME{}
-\def \editorORCID{}
-\def \reviewerINAME{}
-\def \reviewerIORCID{}
-\def \reviewerIINAME{}
-\def \reviewerIIORCID{}
+\def \editorNAME{Koustuv Sinha}
+\def \editorORCID{0000-0002-2803-9236}
+\def \reviewerINAME{Emmanuel Bengio}
+\def \reviewerIORCID{0000-0002-3257-4661}
+\def \reviewerIINAME{Amy Zhang}
+\def \reviewerIIORCID{0000-0002-4061-5582}
 \def \dateRECEIVED{28 June 2020}
-\def \dateACCEPTED{}
-\def \datePUBLISHED{}
+\def \dateACCEPTED{03 November 2020}
+\def \datePUBLISHED{03 November 2020}
 \def \articleTITLE{[Re] Faster Teaching via POMDP Planning}
 \def \articleTYPE{Replication}
-\def \articleDOMAIN{}
+\def \articleDOMAIN{Reinforcement Learning}
 \def \articleBIBLIOGRAPHY{bibliography.bib}
 \def \articleYEAR{2020}
-\def \reviewURL{}
-\def \articleABSTRACT{...}
+\def \reviewURL{https://github.com/ReScience/submissions/issues/44}
+\def \articleABSTRACT{We partially replicated the model described by Rafferty et al. to optimize automated teaching via POMDP planning. Teaching is formulated as a partially observable Markov decision process (POMDP) in which the teacher operates and plans actions based on the belief that reflects the learner's state. The automated teacher employs a cognitive learner model that defines how the learner's knowledge state changes. Two concept learning tasks are used to evaluate the approach: (i) a simple letter arithmetic task with the goal of finding the correct mapping between a set of letters and numbers, and (ii) a number game, where a target number concept needs to be learned. Three learner models were postulated: a memoryless model that stochastically chooses a matching concept based on the current action, a discrete model with memory that additionally matches concepts with previously seen actions and a continuous model with a probability distribution over all concepts that eliminates inconsistent concepts based on the actions. We implemented all models and both tasks, and ran simulations following the same protocol as in the original paper. We were able to replicate the results for the first task with comparable results except for one case. In the second task, our results differ more significantly. While the POMDP policies outperform the random baselines overall, a clear advantage over the policy based on maximum information gain cannot be seen. We open source our implementation in Python and extend the description of the learner models with explicit formulas for the belief update, as well as an extended description of the planning algorithm, hoping that this will help other researchers to extend this work.}
 \def \replicationCITE{Rafferty, A. N., Brunskill, E. , Griffiths, T. L. and Shafto, P. (2016), Faster Teaching via POMDP Planning. Cogn Sci, 40: 1290-1332.}
-\def \replicationBIB{}
+\def \replicationBIB{rafferty2016faster}
 \def \replicationURL{https://www.onlinelibrary.wiley.com/doi/full/10.1111/cogs.12290}
 \def \replicationDOI{10.1111/cogs.12290}
 \def \contactNAME{Lukas Brückner}
 \def \contactEMAIL{lukas.brueckner.89@gmail.com}
-\def \articleKEYWORDS{python, automated teaching, concept learning}
+\def \articleKEYWORDS{rescience c, python, automated teaching, concept learning}
 \def \journalNAME{ReScience C}
-\def \journalVOLUME{4}
-\def \journalISSUE{1}
-\def \articleNUMBER{}
-\def \articleDOI{}
+\def \journalVOLUME{6}
+\def \journalISSUE{3}
+\def \articleNUMBER{7}
+\def \articleDOI{10.5281/zenodo.4242943}
 \def \authorsFULL{Lukas Brückner and Aurélien Nioche}
 \def \authorsABBRV{L. Brückner and A. Nioche}
 \def \authorsSHORT{Brückner and Nioche}

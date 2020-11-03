@@ -1,0 +1,224 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{rafferty2016faster}{article}{}
+      \name{author}{4}{}{%
+        {{hash=0c82cd787eaab8af8494102f217028e1}{%
+           family={Rafferty},
+           familyi={R\bibinitperiod},
+           given={Anna\bibnamedelima N},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=d94fdf38ad71e8210b4505c8fbb7fa87}{%
+           family={Brunskill},
+           familyi={B\bibinitperiod},
+           given={Emma},
+           giveni={E\bibinitperiod}}}%
+        {{hash=15f19cfb916ba0b8afb494f250ea80a2}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={Thomas\bibnamedelima L},
+           giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=820aa9e54b497899615e79fcb7d25f2a}{%
+           family={Shafto},
+           familyi={S\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{2e3737415bdebde2180976d4c2863dfa}
+      \strng{fullhash}{39a0c9aab9145d4a4daa420b9b832cc7}
+      \strng{bibnamehash}{39a0c9aab9145d4a4daa420b9b832cc7}
+      \strng{authorbibnamehash}{39a0c9aab9145d4a4daa420b9b832cc7}
+      \strng{authornamehash}{2e3737415bdebde2180976d4c2863dfa}
+      \strng{authorfullhash}{39a0c9aab9145d4a4daa420b9b832cc7}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cognitive science}
+      \field{number}{6}
+      \field{title}{Faster teaching via pomdp planning}
+      \field{volume}{40}
+      \field{year}{2016}
+      \field{pages}{1290\bibrangedash 1332}
+      \range{pages}{43}
+    \endentry
+    \entry{rossPomdp2008}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=0ca6d666a504064101acdfa1bbbe1b79}{%
+           family={{Ross}},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=153e4bb430cbc723e469e862ad93f481}{%
+           family={{Chaib-draa}},
+           familyi={C\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=90b332458e30d9b44297994103c99f9a}{%
+           family={{Pineau}},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8ccc8460078da82e3bf3c46f5c10b85}
+      \strng{fullhash}{c8ccc8460078da82e3bf3c46f5c10b85}
+      \strng{bibnamehash}{c8ccc8460078da82e3bf3c46f5c10b85}
+      \strng{authorbibnamehash}{c8ccc8460078da82e3bf3c46f5c10b85}
+      \strng{authornamehash}{c8ccc8460078da82e3bf3c46f5c10b85}
+      \strng{authorfullhash}{c8ccc8460078da82e3bf3c46f5c10b85}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2008 IEEE International Conference on Robotics and Automation}
+      \field{title}{Bayesian reinforcement learning in continuous POMDPs with application to robot navigation}
+      \field{year}{2008}
+      \field{pages}{2845\bibrangedash 2851}
+      \range{pages}{7}
+    \endentry
+    \entry{feldman2003simplicity}{article}{}
+      \name{author}{1}{}{%
+        {{hash=564c8b7c6e57370e5199c24b0436df56}{%
+           family={Feldman},
+           familyi={F\bibinitperiod},
+           given={Jacob},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {SAGE Publications Sage CA: Los Angeles, CA}%
+      }
+      \strng{namehash}{564c8b7c6e57370e5199c24b0436df56}
+      \strng{fullhash}{564c8b7c6e57370e5199c24b0436df56}
+      \strng{bibnamehash}{564c8b7c6e57370e5199c24b0436df56}
+      \strng{authorbibnamehash}{564c8b7c6e57370e5199c24b0436df56}
+      \strng{authornamehash}{564c8b7c6e57370e5199c24b0436df56}
+      \strng{authorfullhash}{564c8b7c6e57370e5199c24b0436df56}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Current directions in psychological science}
+      \field{number}{6}
+      \field{title}{The simplicity principle in human concept learning}
+      \field{volume}{12}
+      \field{year}{2003}
+      \field{pages}{227\bibrangedash 232}
+      \range{pages}{6}
+    \endentry
+    \entry{restle1962selection}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3b32eba601984e286e04941630ee3ff8}{%
+           family={Restle},
+           familyi={R\bibinitperiod},
+           given={Frank},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Psychological Association}%
+      }
+      \strng{namehash}{3b32eba601984e286e04941630ee3ff8}
+      \strng{fullhash}{3b32eba601984e286e04941630ee3ff8}
+      \strng{bibnamehash}{3b32eba601984e286e04941630ee3ff8}
+      \strng{authorbibnamehash}{3b32eba601984e286e04941630ee3ff8}
+      \strng{authornamehash}{3b32eba601984e286e04941630ee3ff8}
+      \strng{authorfullhash}{3b32eba601984e286e04941630ee3ff8}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Psychological Review}
+      \field{number}{4}
+      \field{title}{The selection of strategies in cue learning.}
+      \field{volume}{69}
+      \field{year}{1962}
+      \field{pages}{329}
+      \range{pages}{1}
+    \endentry
+    \entry{tenenbaum2000rules}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=5c7ff02e1f8b4c4aa7bfddece14f23d2}{%
+           family={Tenenbaum},
+           familyi={T\bibinitperiod},
+           given={Joshua\bibnamedelima B},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{5c7ff02e1f8b4c4aa7bfddece14f23d2}
+      \strng{fullhash}{5c7ff02e1f8b4c4aa7bfddece14f23d2}
+      \strng{bibnamehash}{5c7ff02e1f8b4c4aa7bfddece14f23d2}
+      \strng{authorbibnamehash}{5c7ff02e1f8b4c4aa7bfddece14f23d2}
+      \strng{authornamehash}{5c7ff02e1f8b4c4aa7bfddece14f23d2}
+      \strng{authorfullhash}{5c7ff02e1f8b4c4aa7bfddece14f23d2}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in neural information processing systems}
+      \field{title}{Rules and similarity in concept learning}
+      \field{year}{2000}
+      \field{pages}{59\bibrangedash 65}
+      \range{pages}{7}
+    \endentry
+    \entry{DoucetSeqMCM2001}{book}{}
+      \name{author}{3}{}{%
+        {{hash=aca5faad8b57b96b59c12fc59d0b6eb4}{%
+           family={Doucet},
+           familyi={D\bibinitperiod},
+           given={Arnaud.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d3e79ae65fa8bce23be8a1187bcae1bb}{%
+           family={De\bibnamedelima Freitas},
+           familyi={D\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Nando.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=df9469128a8542e7ec681f48d2615e22}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{139af4a7f1d2c6b0619a5760f8cd9d4c}
+      \strng{fullhash}{139af4a7f1d2c6b0619a5760f8cd9d4c}
+      \strng{bibnamehash}{139af4a7f1d2c6b0619a5760f8cd9d4c}
+      \strng{authorbibnamehash}{139af4a7f1d2c6b0619a5760f8cd9d4c}
+      \strng{authornamehash}{139af4a7f1d2c6b0619a5760f8cd9d4c}
+      \strng{authorfullhash}{139af4a7f1d2c6b0619a5760f8cd9d4c}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0387951466}
+      \field{title}{Sequential Monte Carlo methods in practice}
+      \field{type}{Book}
+      \field{year}{2001}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
